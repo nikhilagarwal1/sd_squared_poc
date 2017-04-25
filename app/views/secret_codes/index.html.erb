@@ -1,0 +1,23 @@
+<h1>Listing Secret Codes</h1>
+ 
+<table class="table">
+  <tr>
+    <th>Secret Code</th>
+    <th>User</th>
+  </tr>
+ 
+  <% @secrets.each do |secret| %>
+    <tr>
+      <td><%= secret.secret_code%></td>
+      <% if secret.user.present? %>
+          <td><%= secret.user.email %></td>
+    <% else %>
+          <td>No associated user</td>  
+          <% end %>
+    </tr>
+  <% end %>
+</table>
+<% if can? :update, @secret_code %>
+    <%= link_to 'Generate more secret codes', new_secret_code_path, class: "btn btn-primary btn-sm" %>
+<% end %>
+ 

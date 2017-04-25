@@ -1,0 +1,11 @@
+<h2>Create Secret Codes</h2>
+<%= form_for :secret_code, url: secret_codes_path do |f| %>
+  <p>
+    <%= f.label :'select number of secret code' %><br>
+    <%= f.select :frequency, ['1','10','20','50','100'], :selected => '10' %>
+  </p>
+ 
+  <p>
+    <%= f.submit :'Create Secret Code', class: "btn btn-primary btn-sm" %>
+  </p>
+<% end %>
