@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   
   def set_secret_code
-    sc = SecretCode.find_by(secret_code: user_secret_code)
+    sc = SecretCode.find_by(id: user_secret_code.to_i)
     sc.update_attributes(user_id: self.id) if sc.present?
   end
   
